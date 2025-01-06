@@ -10,12 +10,14 @@ before_install:
 script:
   - docker run -e CI=true orel555/docker-react npm run test
 
-# deploy:
-#   provider: elasticbeanstalk
-#   region: "eu-north-1"
-#   app: "frontend"
-#   env: "Frontend-env"
-#   bucket_name: "elasticbeanstalk-eu-north-1-585768158683"
-#   bucket_path: "frontend"
-#   on:
-#     branch: main
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-north-1"
+  app: "frontend"
+  env: "Frontend-env"
+  bucket_name: "elasticbeanstalk-eu-north-1-585768158683"
+  bucket_path: "frontend"
+  on:
+    branch: main
+access_key_id: $AWS_ACCESS_KEY
+secret_access_key: "$AWS_SECRET_KEY"
